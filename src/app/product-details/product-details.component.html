@@ -1,0 +1,14 @@
+<h2>Product Details</h2>
+
+<div *ngIf="product">
+    <h3 style="color: #ff231e" *ngIf="localStorage.getItem(product.id.toString())">
+    Comprado
+</h3>
+  <h3>{{ product?.name }}</h3>
+
+  <h4>{{ product?.price | currency }}</h4>
+  <p>{{ product?.description }}</p>
+    <p>Provider/s</p>
+    <a [routerLink]="['/provider',product?.provider?.id]">{{ product?.provider?.name }}</a>
+  <button type="button" (click)="addToCart(product)">Buy</button>
+</div>
